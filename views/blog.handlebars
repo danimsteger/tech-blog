@@ -7,8 +7,8 @@
       <h5 class='card-title'>Created by
         {{user.name}}
         on
-        {{formatDate blog.date_created}}</h5>
-      <p class='card-text'>{{blog.content}}</p>
+        {{formatDate date_created}}</h5>
+      <p class='card-text'>{{content}}</p>
 
     </div>
   </div>
@@ -20,8 +20,10 @@
       <div class='card-body'>
 
         <p class='card-text'>{{comment.content}}</p>
-        <p> - {{comment.user.name}} {{formatDate comment.date_created}}</p>
-
+        <p>
+          -
+          {{comment.user.name}}
+          {{formatDate comment.date_created}}</p>
       </div>
     </div>
 
