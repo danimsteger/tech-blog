@@ -1,0 +1,30 @@
+<div>
+  <div class='card'>
+    <div class='card-header'>
+      {{title}}
+    </div>
+    <div class='card-body'>
+      <h5 class='card-title'>Created by
+        {{user.name}}
+        on
+        {{formatDate blog.date_created}}</h5>
+      <p class='card-text'>{{blog.content}}</p>
+
+    </div>
+  </div>
+
+  {{#each comments as |comment|}}
+    <div class='card'>
+      <div class='card-header'>
+      </div>
+      <div class='card-body'>
+
+        <p class='card-text'>{{comment.content}}</p>
+        <p> - {{comment.user.name}} {{formatDate comment.date_created}}</p>
+
+      </div>
+    </div>
+
+  {{/each}}
+
+</div>
