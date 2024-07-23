@@ -1,0 +1,17 @@
+[
+  {
+    "name": "Daenerys Targaryen",
+    "email": "dany@gmail.com",
+    "password": "password12345"
+  },
+  {
+    "name": "Taylor Swift",
+    "email": "tswift@gmail.com",
+    "password": "taylorswift12345"
+  },
+  {
+    "name": "Meredith Grey",
+    "email": "greysanatomy@gmail.com",
+    "password": "meredith12345"
+  }
+]
