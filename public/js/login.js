@@ -18,3 +18,9 @@ const loginForm = async (event) => {
     }
   }
 };
+
+const signupForm = async (event) => {
+  event.preventDefault();
+};
+
+document.querySelector('.login-form').addEventListener('submit', loginForm);
