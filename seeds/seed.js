@@ -1,3 +1,4 @@
+// Adopted from Module 14 Activities
 const sequelize = require('../config/connection');
 const { User, Blog, Comment } = require('../models');
 
