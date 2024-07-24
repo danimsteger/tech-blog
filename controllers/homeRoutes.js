@@ -55,17 +55,24 @@ router.get('/blog/:id', async (req, res) => {
 });
 
 router.get('/dashboard', withAuth, async (req, res) => {
+  console.log('step1');
   try {
+    console.log('step2');
     const userData = await User.findByPk(req.session.user_id, {
       attributes: { exclude: ['password'] },
-      include: [{ model: Blog }],
+      include: [{ model: Blog, attributes: ['title', 'date_created', 'id'] }],
     });
+    console.log('step3');
+    console.log(userData);
+    console.log('step4');
 
     const user = userData.get({ plain: true });
     res.render('dashboard', {
       ...user,
       logged_in: true,
     });
+    console.log(user);
+    console.log('step5');
   } catch (err) {
     res.status(500).json(err);
   }
