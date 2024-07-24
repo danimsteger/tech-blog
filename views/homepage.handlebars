@@ -1,13 +1,15 @@
 <div>{{#each blogs as |blog|}}
-    <a href='/blog/{{blog.id}}'><div class='card'>
-        <div class='card-header'>
-          {{blog.title}}
+    <a href='/blog/{{blog.id}}'><div class='card m-4'>
+        <div class='card-header d-flex justify-content-between'>
+          <h3>{{blog.title}}</h3>
+          <div>
+            <p>Created by
+              {{blog.user.name}}
+              on
+              {{formatDate blog.date_created}}</p></div>
         </div>
         <div class='card-body'>
-          <h5 class='card-title'>Created by
-            {{blog.user.name}}
-            on
-            {{formatDate blog.date_created}}</h5>
+          <h5 class='card-title'></h5>
           <p class='card-text'>{{blog.content}}</p>
 
         </div>
