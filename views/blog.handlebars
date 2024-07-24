@@ -29,4 +29,22 @@
 
   {{/each}}
 
+  {{#if logged_in}}
+    <div class='card'>
+      <div class='card-header'>Add A Comment</div>
+      <div class="'card-body">
+        <form class='comment-form'>
+          <div class='mb-3'>
+            <label for='comment' class='form-label'>Comment</label>
+            <input type='text-area' class='form-control' id='comment' />
+          </div>
+          <button type='submit' class='btn btn-primary'>Submit</button>
+
+        </form>
+      </div>
+
+    </div>
+
+  {{/if}}
+
 </div>
