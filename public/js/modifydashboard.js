@@ -32,12 +32,23 @@ const updatePost = async (event) => {
   }
 };
 
-// const deletePost = async (event) => {
-//   try {
-//   } catch (err) {
-//     console.error('error in updating post');
-//   }
-// };
+const deletePost = async (event) => {
+  event.preventDefault();
+  try {
+    const blog_id = window.location.pathname.split('/').pop();
+
+    const response = await fetch(`/api/blogs/${blog_id}`, {
+      method: 'DELETE',
+    });
+    if (response.ok) {
+      document.location.replace('/dashboard');
+    } else {
+      alert('failed to delete blog!');
+    }
+  } catch (err) {
+    console.error('error in updating post');
+  }
+};
 
 document.addEventListener('DOMContentLoaded', () => {
   const updateButton = document.querySelector('#updateButton');
@@ -50,12 +61,12 @@ document.addEventListener('DOMContentLoaded', () => {
     console.log('not working');
   }
 
-  //   const deletePostButton = document.querySelector('#deletePostButton');
+  const deletePostButton = document.querySelector('#deletePostButton');
 
-  //   if (deletePostButton) {
-  //     deletePostButton.addEventListener('click', deleteButton);
-  //   } else {
-  //     console.error('blog form element not found');
-  //     console.log('not working');
-  //   }
+  if (deletePostButton) {
+    deletePostButton.addEventListener('click', deletePost);
+  } else {
+    console.error('blog form element not found');
+    console.log('not working');
+  }
 });
