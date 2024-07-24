@@ -1,21 +1,29 @@
 const loginForm = async (event) => {
-  event.preventDefault();
+  try {
+    event.preventDefault();
 
-  const username = document.querySelector('#username-login').value.trim();
-  const password = document.querySelector('#password-login').value.trim();
-
-  if (username && password) {
-    const response = await fetch('/api/users/login', {
-      method: 'POST',
-      body: JSON.stringify({ username, password }),
-      headers: { 'Content-Type': 'application/json' },
+    const username = document.querySelector('#username-login').value.trim();
+    const password = document.querySelector('#password-login').value.trim();
+    console.log('Submitting login form with data:', {
+      username,
+      password,
     });
 
-    if (response.ok) {
-      document.location.replace('/dashboard');
-    } else {
-      alert(response.statusText);
+    if (username && password) {
+      const response = await fetch('/api/users/login', {
+        method: 'POST',
+        body: JSON.stringify({ username, password }),
+        headers: { 'Content-Type': 'application/json' },
+      });
+
+      if (response.ok) {
+        document.location.replace('/dashboard');
+      } else {
+        alert(response.statusText);
+      }
     }
+  } catch (err) {
+    console.err('error in login Form: ', err);
   }
 };
 
@@ -64,6 +72,13 @@ document.addEventListener('DOMContentLoaded', () => {
     signupFormElement.addEventListener('submit', signupForm);
   } else {
     console.error('Signup form element not found');
+  }
+
+  const loginFormElement = document.querySelector('.login-form');
+  if (loginFormElement) {
+    loginFormElement.addEventListener('submit', loginForm);
+  } else {
+    console.error('Login form element not found');
   }
 });
 
