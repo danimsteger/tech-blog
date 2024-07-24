@@ -11,4 +11,13 @@ const logout = async () => {
   }
 };
 
-document.querySelector('#logout-nav').addEventListener('click', logout);
+document.addEventListener('DOMContentLoaded', () => {
+  console.log('DOMContentLoaded event fired'); // Debugging
+
+  const logoutButton = document.querySelector('#logout-nav');
+  if (logoutButton) {
+    logoutButton.addEventListener('click', logout);
+  } else {
+    console.error('logout form element not found');
+  }
+});

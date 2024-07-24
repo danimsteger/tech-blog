@@ -1,20 +1,19 @@
 <h4>{{name}}'s Dashboard</h4>
 
-<div id='myBlogsList'>
-  HELLOW
-  {{#each blogs as |blog|}}
-    <a href='/blog/{{blog.id}}'><div class='card'>
-        <div class='card-header'>
-          <p>
-            Blog #1:
-            {{blog.title}}
+<div id='myBlogsList' class='visible'>
 
-            Created on:
-            {{formatDate blog.date_created}}
-          </p>
-        </div>
+  {{#each blogs as |blog|}}
+    <div class='card myBlogs'>
+      <div class='card-header'>
+        <p>
+          {{blog.title}}
+
+          Created on:
+          {{formatDate blog.date_created}}
+        </p>
       </div>
-    </a>
+    </div>
+
   {{/each}}
 
 </div>

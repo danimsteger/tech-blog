@@ -1,7 +1,14 @@
 console.log('This is the dashboard page and the script is working!?!?!');
 
-document.getElementById('newPostButton').addEventListener('click', function () {
-  document.getElementById('blogPostForm').classList.toggle('hidden');
+document.querySelector('#newPostButton').addEventListener('click', function () {
+  document.querySelector('#blogPostForm').classList.toggle('hidden');
+  document.querySelector('#myBlogList').classList.toggle('hidden');
+});
+
+document.querySelector('.myBlogs').addEventListener('click', function () {
+  document.querySelector('#blogPostForm').classList.toggle('hidden');
+
+  document.querySelector('#myBlogsList').classList.toggle('hidden');
 });
 
 const newPost = async (event) => {
