@@ -1,9 +1,12 @@
 const router = require('express').Router();
-const { User } = require('../../models');
+const { User, Blog, Comment } = require('../../models');
 
 router.post('/', async (req, res) => {
+  console.log('this is me trying');
   try {
     const userData = await User.create(req.body);
+    console.log('hellooooooo');
+    console.log(req.body);
 
     req.session.save(() => {
       req.session.user_id = userData.id;
@@ -13,8 +16,24 @@ router.post('/', async (req, res) => {
     });
   } catch (err) {
     res.status(400).json(err);
+    console.log('this is me not working!');
   }
 });
+
+// router.post('/signup', async (req, res) => {
+//   try {
+//     const userData = await User.create(req.body);
+
+//     req.session.save(() => {
+//       req.session.user_id = userData.id;
+//       req.session.logged_in = true;
+
+//       res.status(200).json(userData);
+//     });
+//   } catch (err) {
+//     res.status(400).json(err);
+//   }
+// });
 
 router.post('/login', async (req, res) => {
   try {
@@ -39,9 +58,26 @@ router.post('/login', async (req, res) => {
       req.session.logged_in = true;
 
       res.json({ user: userData, message: 'You are now logged in!' });
+      console.log('you are now logged in!!');
+      console.log(req.session.logged_in);
     });
   } catch (err) {
     res.status(200).json(err);
+  }
+});
+
+router.get('/', async (req, res) => {
+  try {
+    const userData = await User
+      .findAll
+      //   {
+      //   include: [{ model: Blog }, { model: Comment }],
+      // }
+      ();
+
+    res.status(200).json(userData);
+  } catch (err) {
+    res.status(500).json(err);
   }
 });
 
