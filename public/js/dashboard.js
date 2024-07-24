@@ -1,15 +1,10 @@
 console.log('This is the dashboard page and the script is working!?!?!');
 
-document.querySelector('#newPostButton').addEventListener('click', function () {
-  document.querySelector('#blogPostForm').classList.toggle('hidden');
-  document.querySelector('#myBlogList').classList.toggle('hidden');
-});
+// document.querySelector('.myBlogs').addEventListener('click', function () {
+//   document.querySelector('#blogPostForm').classList.toggle('hidden');
 
-document.querySelector('.myBlogs').addEventListener('click', function () {
-  document.querySelector('#blogPostForm').classList.toggle('hidden');
-
-  document.querySelector('#myBlogsList').classList.toggle('hidden');
-});
+//   document.querySelector('#myBlogsList').classList.toggle('hidden');
+// });
 
 const newPost = async (event) => {
   console.log('step1');
@@ -45,11 +40,25 @@ const newPost = async (event) => {
 };
 
 document.addEventListener('DOMContentLoaded', () => {
-  const blogFormElement = document.querySelector('.post-form');
+  const createButton = document.querySelector('#createPost');
 
-  if (blogFormElement) {
-    blogFormElement.addEventListener('submit', newPost);
+  if (createButton) {
+    console.log('working!');
+    createButton.addEventListener('click', newPost);
   } else {
     console.error('blog form element not found');
+    console.log('not working');
+  }
+
+  const newPostButton = document.querySelector('#newPostButton');
+
+  if (newPostButton) {
+    console.log('working!');
+    newPostButton.addEventListener('click', function () {
+      document.location.replace('/dashboard/new');
+    });
+  } else {
+    console.error('blog form element not found');
+    console.log('not working');
   }
 });
