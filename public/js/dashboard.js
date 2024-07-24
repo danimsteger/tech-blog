@@ -46,8 +46,6 @@ document.addEventListener('DOMContentLoaded', () => {
     console.log('working!');
     createButton.addEventListener('click', newPost);
   } else {
-    console.error('blog form element not found');
-    console.log('not working');
   }
 
   const newPostButton = document.querySelector('#newPostButton');
@@ -58,7 +56,5 @@ document.addEventListener('DOMContentLoaded', () => {
       document.location.replace('/dashboard/new');
     });
   } else {
-    console.error('blog form element not found');
-    console.log('not working');
   }
 });

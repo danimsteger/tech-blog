@@ -7,23 +7,26 @@
       <form class='post-form'>
         <div class='mb-3 form-group'>
           <label for='title' class='form-label'>Title</label>
-          <input
-            type='text'
-            class='form-input'
-            id='title'
-            value='Title will be here: {{title}}'
-          />
+          <input type='text' class='form-input' id='title' value='{{title}}' />
 
         </div>
         <div class='mb-3'>
           <label for='content' class='form-label'>Content</label>
           <textarea class='form-input' id='content' name='content'>
-            content:
+
             {{content}}</textarea>
         </div>
         <div>
-          <button type='button' class='btn btn-primary'>Update</button>
-          <button type='button' class='btn btn-primary'>Delete</button>
+          <button
+            type='button'
+            class='btn btn-primary'
+            id='updateButton'
+          >Update</button>
+          <button
+            type='button'
+            class='btn btn-primary'
+            id='deletePostButton'
+          >Delete</button>
 
         </div>
       </form>
@@ -32,4 +35,4 @@
   </div>
 </div>
 
-<script src='/js/dashboard.js'></script>
+<script src='/js/modifydashboard.js'></script>

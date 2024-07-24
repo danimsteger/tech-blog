@@ -29,6 +29,25 @@ router.get('/', async (req, res) => {
   }
 });
 
-// router.put('/:id', withAuth, async (req, res))
+router.put('/:id', withAuth, async (req, res) => {
+  try {
+    const blogData = await Blog.update(
+      {
+        content: req.body.content,
+        title: req.body.title,
+      },
+      {
+        where: {
+          id: req.params.id,
+        },
+      }
+    );
+    res.status(200).json(blogData);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+// router.destroy('/:id', withAuth, async (req, res) => {});
 
 module.exports = router;
