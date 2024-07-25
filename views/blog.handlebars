@@ -1,52 +1,60 @@
-<div>
-  <div class='card'>
-    <div class='card-header'>
-      {{title}}
-    </div>
-    <div class='card-body'>
-      <h5 class='card-title'>Created by
-        {{user.name}}
-        on
-        {{formatDate date_created}}</h5>
-      <p class='card-text'>{{content}}</p>
+<div class='justify-content-center'>
+  <div class=''>
+    <div class='card col-12 m-2'>
+      <div class='card-header d-flex justify-content-between'>
+        <h3>{{title}}</h3>
+        <div>
+          <p>Created by
+            {{user.name}}
+            on
+            {{formatDate date_created}}</p></div>
+      </div>
 
+      <div class='card-body'>
+        <p class='card-text'>{{content}}</p>
+      </div>
     </div>
   </div>
 
-  {{#each comments as |comment|}}
-    <div class='card'>
-      <div class='card-header'>
-      </div>
-      <div class='card-body'>
+  <div class='row d-flex justify-content-center'>
+    {{#each comments as |comment|}}
 
-        <p class='card-text'>{{comment.content}}</p>
-        <p>
-          -
-          {{comment.user.name}}
-          {{formatDate comment.date_created}}</p>
-      </div>
-    </div>
-
-  {{/each}}
-
-  {{#if logged_in}}
-    <div class='card'>
-      <div class='card-header'>Add A Comment</div>
-      <div class="'card-body">
-        <form class='comment-form'>
-          <div class='mb-3'>
-            <label for='comment' class='form-label'>Comment</label>
-            <textarea class='form-input' id='comment' name='comment'></textarea>
+      <div class='card col-11 m-2'>
+        <div class='card-body'>
+          <div class='d-flex row align-items-center mt-2'>
+            <p class='card-text'>{{comment.content}}</p>
+            <p>
+              -
+              {{comment.user.name}}
+              {{formatDate comment.date_created}}</p>
           </div>
-          <button type='submit' class='btn btn-primary'>Submit</button>
+        </div>
+      </div>
+    {{/each}}
+  </div>
 
-        </form>
+  <div class='d-flex justify-content-center'>
+    {{#if logged_in}}
+      <div class='card col-11 m-4'>
+        <div class='card-header'>Add A Comment</div>
+        <div class='card-body'>
+          <form class='comment-form'>
+            <div class='m-4'>
+              <textarea
+                class='form-control'
+                id='comment'
+                name='comment'
+              ></textarea>
+            </div>
+            <button type='submit' class='btn btn-primary mx-4'>Submit</button>
+
+          </form>
+        </div>
+
       </div>
 
-    </div>
-
-  {{/if}}
-
+    {{/if}}
+  </div>
 </div>
 
 <script src='/js/comment.js'></script>
