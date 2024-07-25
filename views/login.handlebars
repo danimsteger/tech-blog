@@ -1,30 +1,31 @@
-<div class='card'>
-  <div class='card-header pt-3'><h3>Login</h3></div>
-  <div class="'card-body">
-    <form class='login-form form-control'>
-      <div class='m-3'>
-        <label for='username' class='form-label'>Username:</label>
-        <input
-          type='text'
-          class='form-control'
-          id='username-login'
-          aria-describedby='emailHelp'
-        />
+<div class='d-flex justify-content-center'>
+  <div class='card col-6'>
+    <div class='card-header pt-3'><h3>Login</h3></div>
+    <div class="'card-body">
+      <form class='login-form form-control'>
+        <div class='m-3'>
+          <label for='username' class='form-label'>Username:</label>
+          <input
+            type='text'
+            class='form-control'
+            id='username-login'
+            aria-describedby='emailHelp'
+          />
 
-      </div>
-      <div class='m-3'>
-        <label for='password' class='form-label'>Password:</label>
-        <input type='password' class='form-control' id='password-login' />
-      </div>
-      <button type='submit' class='btn btn-primary m-3'>Submit</button>
+        </div>
+        <div class='m-3'>
+          <label for='password' class='form-label'>Password:</label>
+          <input type='password' class='form-control' id='password-login' />
+        </div>
+        <button type='submit' class='btn btn-primary m-3'>Submit</button>
 
-    </form>
+      </form>
+    </div>
+    <div class='card-footer p-3'>Don't have an account yet?
+      <a href='/signup'><buttom class='btn btn-secondary btn-sm mx-2'>Sign Up
+          Instead</buttom></a>
+    </div>
+
   </div>
-  <div class='card-footer p-3'>Don't have an account yet?
-    <a href='/signup'><buttom class='btn btn-secondary btn-sm mx-2'>Sign Up
-        Instead</buttom></a>
-  </div>
-
 </div>
-
 <script src='./js/login.js'></script>
