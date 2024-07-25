@@ -3,27 +3,37 @@
 <div id='myBlogsList' class='visible'>
 
   {{#each blogs as |blog|}}
-    <a href='/dashboard/blog/{{blog.id}}'><div class='card myBlogs'>
-        <div class='card-header'>
-          <p>
-            {{blog.title}}
+    <div class='m-3'>
+      <a href='/dashboard/blog/{{blog.id}}'><div class='card myBlogs'>
+          <div class='btn btn-secondary d-flex justify-content-between'>
+            <h3>{{blog.title}}</h3>
+            <h5>Created on:
+              {{formatDate blog.date_created}}</h5>
 
-            Created on:
-            {{formatDate blog.date_created}}
-          </p>
+          </div>
+
+          {{!-- <div class='card-header'>
+            <p>
+              {{blog.title}}
+
+              Created on:
+              {{formatDate blog.date_created}}
+            </p>
+          </div> --}}
         </div>
-      </div>
-    </a>
+      </a>
+    </div>
 
   {{/each}}
 
 </div>
-
-<button
-  type='button'
-  class='btn btn-secondary btn-lg'
-  id='newPostButton'
-  href='/dashboard/new'
->+ New Post</button>
+<div class='d-flex justify-content-center'>
+  <button
+    type='button'
+    class='btn btn-primary btn-lg'
+    id='newPostButton'
+    href='/dashboard/new'
+  >+ New Post</button>
+</div>
 
 <script src='/js/dashboard.js'></script>

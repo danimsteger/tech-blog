@@ -1,18 +1,23 @@
-<h4>{{name}}'s Dashboard</h4>
+<h4 class='display-4'>{{name}}'s Dashboard</h4>
 
 <div id='blogPostForm'>
   <div class='card'>
-    <div class='card-header'>Create A Post</div>
+    <div class='card-header pt-3'><h4>Create A New Blog Post </h4></div>
     <div class="'card-body">
-      <form class='post-form'>
-        <div class='mb-3 form-group'>
+      <form class='post-form form-control'>
+        <div class='m-3 form-group'>
           <label for='title' class='form-label'>Title</label>
-          <input type='text' class='form-input' id='title' />
+          <input type='text' class='form-input form-control' id='title' />
 
         </div>
-        <div class='mb-3'>
+        <div class='m-3'>
           <label for='content' class='form-label'>Content</label>
-          <textarea class='form-input' id='content' name='content'>
+          <textarea
+            class='form-input form-control'
+            id='content'
+            name='content'
+            rows='10'
+          >
 
           </textarea>
         </div>
@@ -20,7 +25,7 @@
 
           <button
             type='submit'
-            class='btn btn-primary'
+            class='btn btn-primary m-3'
             id='createPost'
           >Create</button>
 

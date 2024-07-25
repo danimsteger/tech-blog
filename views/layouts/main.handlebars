@@ -17,39 +17,46 @@
   <body>
     <header class='display-flex justify-space-between align-center'>
       <nav class='navbar navbar-expand-lg bg-body-primary p-3'>
-        <div class='container-fluid'>
-          <a class='navbar-brand' href='#'>The Tech Blog</a>
-          <button
-            class='navbar-toggler'
-            type='button'
-            data-bs-toggle='collapse'
-            data-bs-target='#navbarNav'
-            aria-controls='navbarNav'
-            aria-expanded='false'
-            aria-label='Toggle navigation'
-          >
-            <span class='navbar-toggler-icon'></span>
-          </button>
-          <div class='collapse navbar-collapse' id='navbarNav'>
-            <ul class='navbar-nav'>
-              <li class='nav-item'>
-                <a class='nav-link active' aria-current='page' href='/'>Home</a>
-              </li>
-              <li class='nav-item'>
-                <a class='nav-link' href='/dashboard'>Dashboard</a>
-              </li>
-              {{#if logged_in}}
-
+        <div class='container-fluid d-flex justify-content-between'>
+          <div><a class='navbar-brand' href='/'><h3>The Tech Blog</h3></a>
+          </div>
+          <div>
+            <button
+              class='navbar-toggler'
+              type='button'
+              data-bs-toggle='collapse'
+              data-bs-target='#navbarNav'
+              aria-controls='navbarNav'
+              aria-expanded='false'
+              aria-label='Toggle navigation'
+            >
+              <span class='navbar-toggler-icon'></span>
+            </button>
+            <div class='collapse navbar-collapse' id='navbarNav'>
+              <ul class='navbar-nav'>
                 <li class='nav-item'>
-                  <a class='nav-link' id='logout-nav'>Logout</a>
+                  <a
+                    class='nav-link active'
+                    aria-current='page'
+                    href='/'
+                  >Home</a>
                 </li>
-              {{else}}
                 <li class='nav-item'>
-                  <a class='nav-link' id='login-nav' href='/login'>Login</a>
+                  <a class='nav-link' href='/dashboard'>Dashboard</a>
                 </li>
-              {{/if}}
+                {{#if logged_in}}
 
-            </ul>
+                  <li class='nav-item'>
+                    <a class='nav-link' id='logout-nav'>Logout</a>
+                  </li>
+                {{else}}
+                  <li class='nav-item'>
+                    <a class='nav-link' id='login-nav' href='/login'>Login</a>
+                  </li>
+                {{/if}}
+
+              </ul>
+            </div>
           </div>
         </div>
       </nav>
@@ -57,7 +64,7 @@
     <main class='container container-fluid mt-5'>
       {{{body}}}
     </main>
-    <footer class='footer'>
+    <footer class='footer text-center m-5'>
       <h3>Created By Danielle Steger</h3>
     </footer>
     <script
