@@ -1,38 +1,39 @@
-<h4 class='display-4'>{{name}}'s Dashboard</h4>
+<h4 class='display-4 mx-5'>{{name}}'s Dashboard</h4>
+<div class='d-flex justify-content-center'>
+  <div id='blogPostForm' class='col-9'>
+    <div class='card mt-5'>
+      <div class='card-header pt-3'><h4>Create A New Blog Post </h4></div>
+      <div class="'card-body">
+        <form class='post-form'>
+          <div class='m-3 form-group'>
+            <label for='title' class='form-label'>Title</label>
+            <input type='text' class='form-input form-control' id='title' />
 
-<div id='blogPostForm'>
-  <div class='card'>
-    <div class='card-header pt-3'><h4>Create A New Blog Post </h4></div>
-    <div class="'card-body">
-      <form class='post-form form-control'>
-        <div class='m-3 form-group'>
-          <label for='title' class='form-label'>Title</label>
-          <input type='text' class='form-input form-control' id='title' />
+          </div>
+          <div class='m-3'>
+            <label for='content' class='form-label'>Content</label>
+            <textarea
+              class='form-input form-control'
+              id='content'
+              name='content'
+              rows='10'
+            >
 
-        </div>
-        <div class='m-3'>
-          <label for='content' class='form-label'>Content</label>
-          <textarea
-            class='form-input form-control'
-            id='content'
-            name='content'
-            rows='10'
-          >
+            </textarea>
+          </div>
+          <div>
 
-          </textarea>
-        </div>
-        <div>
+            <button
+              type='submit'
+              class='btn btn-primary m-3'
+              id='createPost'
+            >Create</button>
 
-          <button
-            type='submit'
-            class='btn btn-primary m-3'
-            id='createPost'
-          >Create</button>
+          </div>
+        </form>
+      </div>
 
-        </div>
-      </form>
     </div>
-
   </div>
 </div>
 

@@ -12,7 +12,10 @@ const newPost = async (event) => {
     event.preventDefault();
 
     const title = document.querySelector('#title').value.trim();
+
+    console.log(title);
     const content = document.querySelector('#content').value.trim();
+    console.log(content);
 
     if (title && content) {
       const response = await fetch('/api/blogs', {
@@ -25,7 +28,7 @@ const newPost = async (event) => {
           'Content-Type': 'application/json',
         },
       });
-
+      console.log(response);
       if (response.ok) {
         document.location.replace('/dashboard');
       } else {
