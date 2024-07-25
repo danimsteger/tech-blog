@@ -6,6 +6,9 @@ const helpers = require('./utils/helpers');
 const sequelize = require('./config/connection');
 const session = require('express-session');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
+const dotenv = require('dotenv');
+
+dotenv.config();
 
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -13,7 +16,7 @@ const PORT = process.env.PORT || 3001;
 const hbs = exphbs.create({ helpers });
 
 const sess = {
-  secret: process.env.DB_SECRET,
+  secret: process.env.DB_SECRET || 'abcdef12345abcdef12345',
   cookie: {
     maxAge: 60 * 60 * 1000,
     httpOnly: true,
