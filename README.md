@@ -4,7 +4,7 @@
 
 ## Description
 
-This project involved creating a full-stack application from scratch for a blog site that allows users to create blog posts as well as comment on other posts. This project followed MVC paradigm, was creating using the following languages and packages: JavaScript, Handlebars.s, Express, Sequelize, express-session npm package, and bootstrap.
+This project involved creating a full-stack application from scratch for a blog site that allows users to create blog posts as well as comment on other posts. This project followed MVC paradigm, and was created using the following languages and packages: JavaScript, Handlebars.s, Express, Sequelize, express-session npm package, and bootstrap.
 
 ---
 
