@@ -69,7 +69,19 @@
       integrity='sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz'
       crossorigin='anonymous'
     ></script>
-    <script src='/js/logout.js'></script>
+
+    {{#if logged_in}}
+
+      <script src='/js/logout.js'></script>
+    {{/if}}
+
+    <script>
+      {{#if logged_in}}
+        let loggedIn = true;
+      {{else}}
+        let loggedIn = false;
+      {{/if}}
+    </script>
   </body>
 
 </html>

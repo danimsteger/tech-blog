@@ -1,10 +1,10 @@
 const router = require('express').Router();
-const { User, Blog, Comment } = require('../../models');
+const { User2, Blog, Comment } = require('../../models');
 
 router.post('/', async (req, res) => {
   console.log('this is me trying');
   try {
-    const userData = await User.create(req.body);
+    const userData = await User2.create(req.body);
     console.log('hellooooooo');
     console.log(req.body);
 
@@ -22,7 +22,7 @@ router.post('/', async (req, res) => {
 
 // router.post('/signup', async (req, res) => {
 //   try {
-//     const userData = await User.create(req.body);
+//     const userData = await User2.create(req.body);
 
 //     req.session.save(() => {
 //       req.session.user_id = userData.id;
@@ -37,7 +37,7 @@ router.post('/', async (req, res) => {
 
 router.post('/login', async (req, res) => {
   try {
-    const userData = await User.findOne({
+    const userData = await User2.findOne({
       where: { username: req.body.username },
     });
 
@@ -68,7 +68,7 @@ router.post('/login', async (req, res) => {
 
 router.get('/', async (req, res) => {
   try {
-    const userData = await User
+    const userData = await User2
       .findAll
       //   {
       //   include: [{ model: Blog }, { model: Comment }],

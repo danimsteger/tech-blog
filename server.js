@@ -50,6 +50,11 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(routes);
 
+app.use((err, req, res, next) => {
+  console.error(err.stack);
+  res.status(500).json({ message: 'Internal Server Error' });
+});
+
 sequelize.sync({ force: true }).then(() => {
   app.listen(PORT, () =>
     console.log(`Now listening on http://localhost:${PORT}`)

@@ -1,20 +1,23 @@
 const router = require('express').Router();
-const { Blog, Comment, User } = require('../models');
+const { Blog, Comment, User2 } = require('../models');
 const withAuth = require('../utils/auth');
 
 router.get('/', async (req, res) => {
   // Gets all blogs and their data
+  console.log('step 1');
   try {
     const blogData = await Blog.findAll({
       include: [
         {
-          model: User,
+          model: User2,
           attributes: ['name'],
         },
       ],
     });
 
+    console.log(blogData);
     const blogs = blogData.map((blog) => blog.get({ plain: true }));
+    console.log(blogs);
 
     // renders homepage template with blogs data passed in
     res.render('homepage', {
@@ -31,14 +34,14 @@ router.get('/blog/:id', async (req, res) => {
     const blogData = await Blog.findByPk(req.params.id, {
       include: [
         {
-          model: User,
+          model: User2,
           attributes: ['name'],
         },
         {
           model: Comment,
           attributes: ['content', 'date_created', 'user_id'],
           include: {
-            model: User,
+            model: User2,
             attributes: ['name'],
           },
         },
@@ -58,20 +61,20 @@ router.get('/dashboard', withAuth, async (req, res) => {
   console.log('step1');
   try {
     console.log('step2');
-    const userData = await User.findByPk(req.session.user_id, {
+    const user2Data = await User2.findByPk(req.session.user_id, {
       attributes: { exclude: ['password'] },
       include: [{ model: Blog, attributes: ['title', 'date_created', 'id'] }],
     });
     console.log('step3');
-    console.log(userData);
+    console.log(user2Data);
     console.log('step4');
 
-    const user = userData.get({ plain: true });
+    const user2 = user2Data.get({ plain: true });
     res.render('dashboard', {
-      ...user,
+      ...user2,
       logged_in: true,
     });
-    console.log(user);
+    console.log(user2);
     console.log('step5');
   } catch (err) {
     res.status(500).json(err);
@@ -80,22 +83,22 @@ router.get('/dashboard', withAuth, async (req, res) => {
 
 router.get('/dashboard/blog/:id', withAuth, async (req, res) => {
   try {
-    // const userData = await User.findByPk(req.session.user_id, {
+    // const user2Data = await User2.findByPk(req.session.user_id, {
     //   attributes: { exclude: ['password'] },
     // });
 
-    // console.log(userData);
+    // console.log(user2Data);
 
-    // const user = userData.get({ plain: true });
+    // const user2 = user2Data.get({ plain: true });
     // res.render('modifypost', {
-    //   ...user,
+    //   ...user2,
     //   logged_in: true,
     // });
 
     const blogData = await Blog.findByPk(req.params.id, {
       include: [
         {
-          model: User,
+          model: User2,
           attributes: ['name'],
         },
       ],
@@ -124,15 +127,15 @@ router.get('/dashboard', async (req, res) => {
 
 router.get('/dashboard/new', async (req, res) => {
   try {
-    const userData = await User.findByPk(req.session.user_id, {
+    const user2Data = await User2.findByPk(req.session.user_id, {
       attributes: { exclude: ['password'] },
     });
 
-    console.log(userData);
+    console.log(user2Data);
 
-    const user = userData.get({ plain: true });
+    const user2 = user2Data.get({ plain: true });
     res.render('newpost', {
-      ...user,
+      ...user2,
       logged_in: true,
     });
   } catch (err) {

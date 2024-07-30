@@ -1,6 +1,6 @@
 // Adopted from Module 14 Activities
 const sequelize = require('../config/connection');
-const { User, Blog, Comment } = require('../models');
+const { User2, Blog, Comment } = require('../models');
 
 const userData = require('./userData.json');
 const blogData = require('./blogData.json');
@@ -9,7 +9,7 @@ const commentData = require('./commentData.json');
 const seedDatabase = async () => {
   await sequelize.sync({ force: true });
 
-  const users = await User.bulkCreate(userData, {
+  const users2 = await User2.bulkCreate(userData, {
     individualHooks: true,
     returning: true,
   });
@@ -23,7 +23,7 @@ const seedDatabase = async () => {
   for (const blog of blogData) {
     const newBlog = await Blog.create({
       ...blog,
-      user_id: users[Math.floor(Math.random() * users.length)].id,
+      user_id: users2[Math.floor(Math.random() * users2.length)].id,
     });
     createdBlogs.push(newBlog);
   }
@@ -35,7 +35,7 @@ const seedDatabase = async () => {
     await Comment.create({
       ...comment,
       blog_id: randomBlog.id,
-      user_id: users[Math.floor(Math.random() * users.length)].id,
+      user_id: users2[Math.floor(Math.random() * users2.length)].id,
     });
   }
   process.exit(0);
