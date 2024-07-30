@@ -108,3 +108,11 @@ a {
   background-color: var(--lightest);
   border-bottom: var(--lightest);
 }
+
+.link-dark {
+  color: var(--darkest);
+}
+
+.link-dark:hover {
+  color: var(--lightest) !important;
+}
